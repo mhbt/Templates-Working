@@ -1,0 +1,53 @@
+body {
+  background:  transparent url(images/coffee.jpg) fixed;
+  font-family: 'Saira Semi Condensed', sans-serif;
+  background-size: 100%;
+  padding: 0;
+  margin:0;
+}
+p {
+  font-size: 20px;
+  line-height: 30px;
+}
+#title {
+  color: white;
+  font-size: 70px;
+  line-height: 80px;
+}
+h1 {
+  font-size: 40px;
+  line-height: 50px;
+}
+.title-cover {
+  background-color: rgba(160,82,45,0.3);
+  text-align: center;
+  margin: 0;
+  padding:0;
+  padding-top: 16%;
+  padding-bottom: 25%;
+}
+.white-container {
+  text-align: center;
+  display: block;
+  border-radius: 5px;
+  background-color: white;
+  padding: 60px 15%;
+}
+.image-container {
+  text-align: center;
+  padding :200px 0px;
+  background:  transparent url(images/2.jpg) fixed;
+  background-size: 100%;
+}
+.layer {
+  color: white;
+  margin:  0 10%;
+  background-color: rgba(0,0,0,0.5);
+  padding: 20px;
+}
+.image-container2 {
+  text-align: center;
+  padding :100px 0px;
+  background:  transparent url(images/3.jpg) fixed;
+  background-size: 100%;
+}
