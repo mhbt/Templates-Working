@@ -1,0 +1,131 @@
+/*242F40 -- yankee blue */
+/*background-color:231123; -- greyish-black*/
+.row {
+  margin: 0;
+  margin-left: -15px;
+}
+.nav-stacked{
+  background-color: #0D1B2A;
+  color: white;
+  line-height: 40px;
+}
+.navbar {
+  margin-bottom: 0;
+}
+.stacked-container {
+  height: 1000px;
+  width:inherit;
+}
+body {
+  background-color: #E5E5E5;
+}
+.nav-stacked .glyphicon {
+  margin-right: 10px;
+}
+.col-xs-2 {
+  width: 80px;
+}
+.navbar .navbar-brand {
+  color:white;
+}
+.navbar  {
+  border-radius: 4px 4px 4px 0px;
+
+}
+.navbar-default {
+  background-color:#242F40;
+  border:none;
+  color: white;
+}
+.page-body {
+  margin: 40px 0;
+  padding:0;
+  border-radius: 0;
+}
+.nav-links{
+  color: white;
+  text-decoration: none;
+}
+.nav-links:hover{
+  color:#CCA43B;
+  text-decoration: none;
+  font-style: italic;
+  transition: font-style 0.1s ease-out;
+  font-size: 120%;
+  cursor: pointer;
+}
+
+/*clock styles*/
+
+#clock {
+    width: 100%;
+}
+.clock-box {
+  width:inherit;
+}
+/* Clock styles */
+.circle {
+    fill: none;
+    stroke: #000;
+    stroke-width: 9;
+    stroke-miterlimit: 10;
+}
+
+.mid-circle {
+    fill: #000;
+}
+.hour-marks {
+    fill: none;
+    stroke: #000;
+    stroke-width: 9;
+    stroke-miterlimit: 10;
+}
+
+.hour-arm {
+    fill: none;
+    stroke: #000;
+    stroke-width: 17;
+    stroke-miterlimit: 10;
+}
+
+.minute-arm {
+    fill: none;
+    stroke: #000;
+    stroke-width: 11;
+    stroke-miterlimit: 10;
+}
+
+.second-arm {
+    fill: none;
+    stroke: #000;
+    stroke-width: 4;
+    stroke-miterlimit: 10;
+}
+
+/* Transparent box ensuring arms center properly. */
+.sizing-box {
+    fill: none;
+}
+
+/* Make all arms rotate around the same center point. */
+/* Optional: Use transition for animation. */
+#hour,
+#minute,
+#second {
+    transform-origin: 300px 300px;
+    transition: transform .5s ease-in-out;
+}
+.counter {
+  padding-left: 10%;
+}
+.counter .part .panel-body {
+  text-align: center;
+  font-size: 260%;
+  font-weight: 700;
+}
+.counter .part a {
+  color: white;
+}
+.panel-footer {
+  background-color: inherit;
+}

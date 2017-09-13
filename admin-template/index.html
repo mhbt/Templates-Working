@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <!-- style copy : https://adminlte.io/themes/AdminLTE/index2.html# -->
+  <head>
+    <title>The Panel</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content = "width=device-width, initial-scale= 1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel = "stylesheet" href="style.css">
+  </head>
+  <body>
+    <nav class="navbar navbar-default">
+      <div class="nav navbar-nav navbar">
+        <div class="navbar-header">
+          <div class="navbar-brand">
+            <span>The Panel</span>
+          </div>
+          <div class="navbar-btn pull-left" type = "button">
+            <button class="btn btn-default btn-nav-toggle" type ="button">
+              <span class="glyphicon glyphicon-align-justify"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="row">
+      <div class=" col-xs-3 col-md-2 page-navigation">
+          <ul class = "nav nav-pills nav-stacked">
+            <div class="container stacked-container">
+              <li><span class = "glyphicon glyphicon-user"></span><span class="dash-text true"> User</span></li>
+              <li><a id="panel-clock-show" class="nav-links"><span class = "glyphicon glyphicon-time"></span> <span class="dash-text"> Clock</span></a></li>
+              <li><a id="panel-chart-show" class="nav-links"><span class = "glyphicon glyphicon-object-align-left"> </span>  <span class="dash-text"> Chart</span></a></li>
+              <li><a href="#panel-timer-show" class="nav-links"><span class = "glyphicon glyphicon-screenshot"></span>  <span class="dash-text"> Timer</span></a></li>
+            </div>
+          </ul>
+      </div>
+
+      <div class="page-body col-xs-9 col-md-10">
+          <div class="row">
+            <div class="col-md-6 col-xs-12">
+              <div class="panel panel-info panel-clock">
+                <div class="panel-heading text-center">
+                  Clock
+                  <a href="#" id= "panel-clock" class ="btn-default"><span class="glyphicon glyphicon-remove-circle pull-right"></span> </a>
+                </div>
+                <div class="panel-body">
+                  <div class="clockbox">
+                      <svg id="clock" xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600">
+                          <g id="face">
+                              <circle class="circle" cx="300" cy="300" r="253.9"/>
+                              <path class="hour-marks" d="M300.5 94V61M506 300.5h32M300.5 506v33M94 300.5H60M411.3 107.8l7.9-13.8M493 190.2l13-7.4M492.1 411.4l16.5 9.5M411 492.3l8.9 15.3M189 492.3l-9.2 15.9M107.7 411L93 419.5M107.5 189.3l-17.1-9.9M188.1 108.2l-9-15.6"/>
+                              <circle class="mid-circle" cx="300" cy="300" r="16.2"/>
+                          </g>
+                          <g id="hour">
+                              <path class="hour-arm" d="M300.5 298V142"/>
+                              <circle class="sizing-box" cx="300" cy="300" r="253.9"/>
+                          </g>
+                          <g id="minute">
+                              <path class="minute-arm" d="M300.5 298V67"/>
+                              <circle class="sizing-box" cx="300" cy="300" r="253.9"/>
+                          </g>
+                          <g id="second">
+                              <path class="second-arm" d="M300.5 350V55"/>
+                              <circle class="sizing-box" cx="300" cy="300" r="253.9"/>
+                          </g>
+                      </svg>
+                  </div><!-- .clockbox -->
+                </div> <!--panel-body-->
+              </div><!--panel-->
+
+            </div> <!--col-md-6 col-xs-12-->
+            <div class="col-md-6 col-xs-12">
+              <div class="panel panel-danger panel-chart">
+                <div class="panel-heading text-center">
+                  Chart
+                  <a href="#" id= "panel-chart" class ="btn-default"><span class="glyphicon glyphicon-remove-circle pull-right"></span> </a>
+                </div>
+                <div class="panel-body">
+                  <div class="container" style="position: relative;  width:inherit">
+                     <canvas id="myChart"></canvas>
+                   </div>
+                </div> <!--panel-body-->
+              </div><!--panel-->
+
+            </div> <!--col-md-6 col-xs-12-->
+            <div class="col-md-6 col-xs-12">
+              <div class="panel panel-warning panel-chart">
+                <div class="panel-heading text-center">
+                  Counter
+                  <a href="#" id= "panel-chart" class ="btn-default"><span class="glyphicon glyphicon-remove-circle pull-right"></span> </a>
+                </div>
+                <div class="panel-body">
+                  <div class="container" style="position: relative;  width:inherit">
+                     <div class="row counter">
+                       <div class="col-xs-4 part">
+                          <div class="panel panel-warning">
+                            <div class="panel-heading"></div>
+                            <div class="panel-body" id="counter-hour">00</div>
+                            <div class="panel-heading"></div>
+                          </div>
+                       </div>
+                       <div class="col-xs-4  part part-middle">
+                          <div class="panel panel-warning">
+                            <div class="panel-heading"></div>
+                            <div class="panel-body"id="counter-min">00</div>
+                            <div class="panel-heading"></div>
+                          </div>
+                       </div>
+                       <div class="col-xs-4 part">
+                          <div class="panel panel-warning">
+                            <div class="panel-heading"></div>
+                            <div class="panel-body flip-container">
+                              <div class="flipper">
+                                <div id="counter-sec">00</div>
+                              </div>
+                            </div>
+                            <div class="panel-heading"></div>
+                          </div>
+                       </div>
+                       <div class="col-xs-12 part text-center">
+                          <!-- <div class="panel panel-default text-center"> -->
+                            <!-- <div class="panel-heading"> -->
+                              <a id= "play" href= "#" class = "btn btn-warning "><span  class="glyphicon glyphicon-play">
+                              </span></a>
+                              <a id = "stop" href= "#" class = "btn btn-warning "><span  class="glyphicon glyphicon-stop">
+                              </span></a>
+                            <!-- </div> -->
+                          <!-- </div> -->
+                       </div>
+                     </div>
+                   </div>
+                </div> <!--panel-body-->
+              </div><!--panel-->
+
+            </div> <!--col-md-6 col-xs-12-->
+          </div>
+      </div>
+    </div>
+
+
+<!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"  crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js" charset="utf-8"></script>
+    <script src="cycle.js" charset="utf-8"></script>
+    <script src="script.js" charset="utf-8"></script>
+  </body>
+</html>

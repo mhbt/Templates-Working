@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang = "en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name = "viewport" content ="width= device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js" charset="utf-8"></script>
+</head>
+<body>
+  <canvas id="myChart"></canvas>
+  <script type="text/javascript">
+      // First create a context using the .getContext to the canvas
+      var ctx = document.getElementById('myChart').getContext('2d');
+      // Then create the chart with options lets create option object first
+      var options = {
+        // First option type
+        type: 'line', //or bar
+        // second data object
+        data:{
+          labels:["The one for horizontal labels", "February", "March", "April", "May", "June", "July"],
+          datasets: [{
+            label: "The label of representing data sets",
+            backgroundColor: 'color',
+            borderColor: 'color',
+            data: ["The dataset according to the horizontal labels"]
+          }]
+        },
+        // then option object
+        options:{}
+      }
+  </script>
+</body>
+
+</html>
