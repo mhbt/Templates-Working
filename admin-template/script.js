@@ -114,77 +114,92 @@ var ctx = document.getElementById('myChart').getContext('2d');
         // Configuration options go here
         options: {}
     });
-//couter -controller
-var Counter = function(options){
-  var interval= [];
-  var count = 1;
-  return {
-    play: function () {
-      setTimeout(function(){
-        options.seconds.innerHTML = (count++ % 60).toString().padStart(2,'0');
-        interval[0] = setInterval(function(){
-          options.seconds.innerHTML = (count++ % 60).toString().padStart(2,'0');
-        }, 1000);
-      },0);
-        interval[1] = setInterval(function(){
-          options.minutes.innerHTML =  (Math.floor((count / 60) % 60)).toString().padStart(2,'0');
-        }, 1000 * 60);
-        interval[2] = setInterval(function(){
-          options.hours.innerHTML = (Math.floor((count/60/60) % 24)).toString().padStart(2,'0');
-        }, 1000 * 60 * 60);
-      },
-      pause: function() {
-        for(var i = 0; i < interval.length; i++){
-          clearInterval(interval[i]);
-        }
-      },
-      stop: function() {
-        for(var i = 0; i < interval.length; i++){
-          clearInterval(interval[i]);
-          count = 1;
-            }
-            options.seconds.innerHTML= "00";
-            options.minutes.innerHTML= "00";
-            options.hours.innerHTML = "00";
-          }
-      } //return
-} //Counter module
-
-
-    // the counter application
-    var counter = null;
-    var counter_args = {
-      seconds:document.getElementById('counter-sec'),
-      minutes:document.getElementById('counter-min'),
-      hours:document.getElementById('counter-hour')
-    }
-    counter = new Counter(counter_args);
-    var play = document.querySelector("#play");
-    play.addEventListener('click',function(e){
-      e.preventDefault();
-      if(document.querySelector(".glyphicon-play")){
-        var play_btn = document.querySelector(".glyphicon-play");
-        play_btn.classList.add("glyphicon-pause")
-        play_btn.classList.remove("glyphicon-play");
-
-        counter.play();
-      }
-      else {
-        var pause_btn = document.querySelector(".glyphicon-pause");
-        pause_btn.classList.add("glyphicon-play");
-        pause_btn.classList.remove("glyphicon-pause");
-        counter.pause();
-      }
-    }, false);
-    var stop = document.querySelector("#stop");
-    stop.addEventListener('click',function(e){
-      e.preventDefault();
-      counter.stop();
-      if(document.querySelector(".glyphicon-pause"))
-        var pause_btn = document.querySelector(".glyphicon-pause");
-        pause_btn.classList.add("glyphicon-play")
-        pause_btn.classList.remove("glyphicon-pause");
-    }, false);
-
-
-  //  console.log(Math.floor(1 % 24));
+// //couter -controller
+// var Counter = function(options){
+//   var interval= [];
+//   var count = 1;
+//   return {
+//     play: function () {
+//       setTimeout(function(){
+//         options.seconds.innerHTML = (count++ % 60).toString().padStart(2,'0');
+//         interval[0] = setInterval(function(){
+//           options.seconds.innerHTML = (count++ % 60).toString().padStart(2,'0');
+//         }, 1000);
+//       },0);
+//         interval[1] = setInterval(function(){
+//           options.minutes.innerHTML =  (Math.floor((count / 60) % 60)).toString().padStart(2,'0');
+//         }, 1000 * 60);
+//         interval[2] = setInterval(function(){
+//           options.hours.innerHTML = (Math.floor((count/60/60) % 24)).toString().padStart(2,'0');
+//         }, 1000 * 60 * 60);
+//       },
+//       pause: function() {
+//         for(var i = 0; i < interval.length; i++){
+//           clearInterval(interval[i]);
+//         }
+//       },
+//       stop: function() {
+//         for(var i = 0; i < interval.length; i++){
+//           clearInterval(interval[i]);
+//           count = 1;
+//             }
+//             options.seconds.innerHTML= "00";
+//             options.minutes.innerHTML= "00";
+//             options.hours.innerHTML = "00";
+//           }
+//       } //return
+// } //Counter module
+//
+//
+//     // the counter application
+//
+//     var counter = null;
+//     var counter_args = {
+//       seconds:document.getElementById('counter-sec'),
+//       minutes:document.getElementById('counter-min'),
+//       hours:document.getElementById('counter-hour')
+//     }
+//     counter = new Counter(counter_args);
+//     var play = document.querySelector("#play");
+//     play.addEventListener('click',function(e){
+//       e.preventDefault();
+//       if(document.querySelector(".glyphicon-play")){
+//         var play_btn = document.querySelector(".glyphicon-play");
+//         play_btn.classList.add("glyphicon-pause")
+//         play_btn.classList.remove("glyphicon-play");
+//
+//         counter.play();
+//       }
+//       else {
+//         var pause_btn = document.querySelector(".glyphicon-pause");
+//         pause_btn.classList.add("glyphicon-play");
+//         pause_btn.classList.remove("glyphicon-pause");
+//         counter.pause();
+//       }
+//     }, false);
+//     var stop = document.querySelector("#stop");
+//     stop.addEventListener('click',function(e){
+//       e.preventDefault();
+//       counter.stop();
+//       if(document.querySelector(".glyphicon-pause"))
+//         var pause_btn = document.querySelector(".glyphicon-pause");
+//         pause_btn.classList.add("glyphicon-play")
+//         pause_btn.classList.remove("glyphicon-pause");
+//     }, false);
+//
+//  console.log(Math.floor(1 % 24));
+var params= {
+  display: {
+     seconds:'#counter-sec',
+     minutes:'#counter-min',
+     hours:'#counter-hour'
+   },
+   controller: {
+     play: "#play",
+     stop:"#stop",
+    play_icon: ".glyphicon-play",
+    stop_icon: ".glyphicon-stop",
+    pause_icon: ".glyphicon-pause",
+   }
+}
+counter(params);
