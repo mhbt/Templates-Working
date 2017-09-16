@@ -7,7 +7,7 @@ function toggleNav(e){
   e.preventDefault();
   var nav = document.querySelector(".page-navigation");
   var body = document.querySelector(".page-navigation");
-  nav.style.transition = 'all 0.5s ease-out';
+  nav.style.transition = 'width 0.5s ease-out';
   if(!document.querySelector('.dash-text').classList.contains('true')){
     document.querySelector('.dash-text').classList.toggle("true");
     nav.classList.remove('col-xs-2');
@@ -19,6 +19,11 @@ function toggleNav(e){
     body.classList.remove('col-md-11');
     body.classList.add('col-xs-9');
     body.classList.add('col-md-10');
+    setTimeout(function(){
+      document.querySelectorAll('.dash-text').forEach(function(element){
+      element.classList.toggle("hide");
+      });
+    },200)
   }
   else {
     document.querySelector('.dash-text').classList.toggle("true");
@@ -31,10 +36,12 @@ function toggleNav(e){
     body.classList.remove('col-md-10');
     body.classList.add('col-xs-10');
     body.classList.add('col-md-11');
+    setTimeout(function(){
+      document.querySelectorAll('.dash-text').forEach(function(element){
+      element.classList.toggle("hide");
+      });
+    },0)
   }
-  document.querySelectorAll('.dash-text').forEach(function(element){
-  element.classList.toggle("hide");
-  });
 }
 var chart_hide =document.querySelector('#panel-chart');
 chart_hide.addEventListener('click', (e) => {

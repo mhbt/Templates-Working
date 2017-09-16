@@ -43,23 +43,44 @@
           play: function () {
           setTimeout(function(){
             containers.seconds.innerHTML = (data.count++ % 60).toString().padStart(2,'0');
+            setTimeout(function(){
+              document.querySelector(".flipper-s").style.animationPlayState = "running";
+
+            },0);
             data.interval[0] = setInterval(function(){
+              // document.querySelector(".flipper-s").style.transform="rotateX(360deg)";
               containers.seconds.innerHTML = (data.count++ % 60).toString().padStart(2,'0');
             }, 1000);
           },0);
             data.interval[1] = setInterval(function(){
-              containers.minutes.innerHTML =  (Math.floor((data.count / 60) % 60)).toString().padStart(2,'0');
+              setTimeout(function(){
+                document.querySelector(".flipper-m").style.animationPlayState = "running";
+                  containers.minutes.innerHTML =  (Math.floor((data.count / 60) % 60)).toString().padStart(2,'0');
+              },0);
+              setTimeout(function(){
+                document.querySelector(".flipper-m").style.animationPlayState = "paused";
+              },1000);
             }, 1000 * 60);
             data.interval[2] = setInterval(function(){
-              containers.hours.innerHTML = (Math.floor((data.count/60/60) % 24)).toString().padStart(2,'0');
+              setTimeout(function(){
+                document.querySelector(".flipper-h").style.animationPlayState = "running";
+                containers.hours.innerHTML = (Math.floor((data.count/60/60) % 24)).toString().padStart(2,'0');
+              },0);
+              setTimeout(function(){
+                document.querySelector(".flipper-h").style.animationPlayState = "paused";
+              },1000);
             }, 1000 * 60 * 60);
           },
           pause: function() {
+            document.querySelector(".flipper-s").style.animationPlayState = "paused";
             for(var i = 0; i < data.interval.length; i++){
               clearInterval(data.interval[i]);
             }
           },
           stop: function() {
+            setTimeout(function(){
+              document.querySelector(".flipper-s").style.animationPlayState = "paused";
+            },1);
             for(var i = 0; i < data.interval.length; i++){
               clearInterval(data.interval[i]);
               data.count = 1;

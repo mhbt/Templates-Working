@@ -1,5 +1,6 @@
 /*242F40 -- yankee blue */
 /*background-color:231123; -- greyish-black*/
+
 .row {
   margin: 0;
   margin-left: -15px;
@@ -50,7 +51,7 @@ body {
   color:#CCA43B;
   text-decoration: none;
   font-style: italic;
-  transition: font-style 0.1s ease-out;
+  /*transition: font-style 0.1s ease-out;*/
   font-size: 120%;
   cursor: pointer;
 }
@@ -113,7 +114,7 @@ body {
 #minute,
 #second {
     transform-origin: 300px 300px;
-    transition: transform .5s ease-in-out;
+    transition: transform 1s ease-in-out;
 }
 .counter {
   padding-left: 10%;
@@ -128,4 +129,55 @@ body {
 }
 .panel-footer {
   background-color: inherit;
+}
+.part-button .btn-warning {
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.flip-container {
+  position: relative;
+  perspective: 1500px;
+  text-align:center;
+  padding:0;
+  min-width: 80px;
+  min-height: 80px;
+  box-shadow: 3px 3px 1px 1px rgba(0,0,0,0.5);
+  border-radius: 10px;
+  /*background-color: red;*/
+}
+.flipper {
+  border-color: gray;
+  width:100%;
+  height:100%;
+  padding-top: 12%;
+  display: block;
+  position: absolute;
+  border-radius: 10px;
+  /*transition: all 1s ease;*/
+  animation-name: counter-animation;
+  animation-iteration-count: infinite;
+  animation-duration: 1s;
+  /*animation-delay: 0.5s;*/
+  animation-timing-function: ease-out;
+  animation-play-state: paused;
+  text-align:center;
+  /*backface-visibility: hidden;*/
+  transform-origin: top;
+  background-color: rgba(255,255,255,0.9);
+}
+.flipper:hover{
+  transform: rotateX(360deg);
+
+}
+@keyframes counter-animation {
+  0% {
+    transform:rotateX(0deg);
+  }
+  50% {
+    transform:rotateX(360deg);
+  }
+  100% {
+    transform:rotateX(360deg);
+  }
 }
